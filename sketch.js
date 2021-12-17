@@ -80,24 +80,24 @@ function draw()
   image(bg_img,0,0);
   push()
   fill(255);
-  text("Horizontal Velocity: " +round(vx,2),800,50);
-  text("Fuel: "+fuel,800,25);
-  text("Vertical Velocity: "+round(vy),800,75);
+  text("Velocidad horizontal: " +round(vx,2),800,50);
+  text("Combustible: "+fuel,800,25);
+  text("Velocidad vertical: "+round(vy),800,75);
   pop();
-
-  //fall down
+ 
+  // Caída
   vy +=g;
   lander.position.y+=vy;
   lander.position.x +=vx;
 
-  //obstacle detection
+  // Detección de obstáculo
   if(lander.collide(obs)==true)
   {
     lander.changeAnimation('crashing');
     stop();
   }
 
-  //landing detection;
+  // Detección de zona de aterrizaje
   var d = dist(lander.position.x,lander.position.y,lz.position.x,lz.position.y);
   console.log(d);
 
